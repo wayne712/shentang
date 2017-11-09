@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # wechat-starter
 
 [![Build Status][travis-badge]][travis]
@@ -119,3 +120,6 @@ rake wechat:menu
 
 [travis-badge]: https://travis-ci.org/goofansu/wechat-starter.svg
 [travis]: https://travis-ci.org/goofansu/wechat-starter
+=======
+# shentang
+>>>>>>> 0b42a88c02383b762c8b0228c364eb976b3c6578
