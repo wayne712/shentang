@@ -211,7 +211,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true 
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -219,7 +219,7 @@ Devise.setup do |config|
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  # config.sign_out_all_scopes = true
+  config.sign_out_all_scopes = false 
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
@@ -263,5 +263,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :wechat, Figaro.env.wechat_app_id, Figaro.env.wechat_secret
-  config.warden { |manager| manager.failure_app = DeviseFailure }
+  config.warden { |manager| manager.scope_defaults(:user, failure_app: DeviseFailure) }
 end

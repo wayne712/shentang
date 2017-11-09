@@ -1,44 +1,45 @@
-<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
-<%= wechat_config_js debug: true, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
-<script type="application/javascript">
- wx.ready(function() {
-   wx.hideOptionMenu();
- });
-</script>
+<h1 class="hcs-h1">Welcome to STRENGTHEN</h1>
 
-<div class="weui-msg">
-  <div class="weui-msg__text-area">
-    <h1 class="weui-msg__title">Hello, <%= current_user.nickname %></h1>
-    <img src="<%= current_user.avatar %>" width="128" height="128">
+<div class="container">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><%= image_tag('banner.jpg', class: "img-responsive") %></div>
+      <div class="swiper-slide"><%= image_tag('banner.jpg', class: "img-responsive") %></div>
+      <div class="swiper-slide"><%= image_tag('banner.jpg', class: "img-responsive") %></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev iconfont icon-shangyiye"></div>
+    <div class="swiper-button-next iconfont icon-xiayiye"></div>
   </div>
-  <div class="weui-msg__opr-area">
-    <p class="weui-btn-area">
-      <% if Figaro.env.wechat_pay_mch_id %>
-        <a href="javascript:wxpay();" class="weui-btn weui-btn_primary">Try wechat pay!</a>
+  <% @categories.each do | category | %>
+  <div class="pro-title">
+    <span><%= category.name %></span>
+  </div>
+  <div class="pro-list">
+    <ul>
+      <% category.products_with_img.each do | item | %>
+       <li>
+         <a href="<%= product_path(item.id) %>" class="row">
+          <div class="col-xs-4">
+            <img src="<%= item.path %>">
+          </div>
+          <div class="col-xs-8">
+            <h4><%= item.name %></h4>
+          </div>
+        </a>
+      </li>
       <% end %>
-      <a href="javascript:wx.closeWindow();" class="weui-btn weui-btn_plain-default">Close</a>
-    </p>
+    </ul>
   </div>
+<% end %>
 </div>
 
-<% if Figaro.env.wechat_pay_mch_id %>
-  <script>
-   function wxpay() {
-     $.post('/wx_pay', function(data) {
-       wx.chooseWXPay({
-         timestamp: data.timeStamp,
-         nonceStr: data.nonceStr,
-         package: data.package,
-         signType: data.signType,
-         paySign: data.paySign,
-         success: function (res) {
-           alert(JSON.stringify(res));
-         },
-         error: function(e) {
-           alert(JSON.stringify(e));
-         }
-       });
-     });
-   }
-  </script>
-<% end %>
+<script>
+var swiper = new Swiper('.swiper-container', {
+  loop: true,
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev'
+});
+</script>
