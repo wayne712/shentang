@@ -1,0 +1,48 @@
+<div class="container product-detail">
+
+  <h1><a src="<%= url_for(:back) %>" class="iconfont icon-zuo"></a>
+  <%= @product.name %></h1>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <% @product.product_photos.each do | v | %>
+                <div class="swiper-slide"><img class="img-responsive" src="<%= v.path %>" alt=""></div>
+              <% end %>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev iconfont icon-shangyiye"></div>
+            <div class="swiper-button-next iconfont icon-xiayiye"></div>
+        </div>
+
+        <div class="price-share">
+            <div>
+              <h2><%= @product.name %></h2>
+              <p class="price">现价: <ins><%= @product.sell_price %></ins>
+              <del>原价: <%= @product.discount_price %></del></p>
+            </div>
+            <div class="share-pro"><span class="iconfont icon-fenxiang"></span></div>
+        </div>
+
+        <p class="filepro bg-common">
+            With the development of wireless technology, bluetooth headset
+is small, wireless, portable and so on. And from the qcy brand 
+q9 bluetooth headset, is not only a design to be simple, fashion, 
+but also has a clear voice of the bluetooth headset. 
+        </p>
+        
+        <hr>
+
+        <h3>Product parameter</h3>
+        <p class="text-muted"><stong>Product name:</stong>Huawei bluetooth headset AM60 <br>
+            <stong>Brand:</stong>Huawei <br>            
+            <stong>Origin of commodity:</stong>China mainland <br>            
+            <stong>Gross commodity weight:</stong>90g
+        </p>
+        
+        <hr>
+        
+        <h3>Details of graphic and text</h3>
+        <img class="img-responsive" src="images/p.jpg" alt="">
+        <p>&nbsp;</p>
+
+    </div>

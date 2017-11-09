@@ -1,0 +1,133 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.product-detail h1{
+    font-size:16px;
+    text-align:center;
+    border-bottom:1px solid #ebebeb;
+    line-height:40px;
+    margin:10px 0;
+    color:#333;
+}
+.product-detail h1 a.iconfont{
+    float:left;
+    color:#333;
+    font-size:18px;
+}
+.product-detail h2{
+    font-size:16px;
+}
+.product-detail h3{
+    font-size:16px;
+    color: #00d1c8;    
+    font-weight:bold;
+}
+.price-share{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price{
+    color: #b7b7b7;
+}
+.price ins{
+    font-size: 16px;
+    color: #00d1c8;
+    text-decoration: none;
+    margin-right: 12px;
+}
+.price del{
+    color: #b7b7b7;
+    font-size: 12px;
+}
+.share-pro span.iconfont{
+    font-size:30px;
+    color: #00d1c8;
+}
+.swiper-button-prev.iconfont, .swiper-container-rtl .swiper-button-next.iconfont{
+    background:none;font-size:30px
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background:none;font-size:30px
+}
+.swiper-pagination-bullet-active{
+    background-color:#00d1c8;
+}
+.filepro{
+    padding:10px;
+}
+
+#share-pro{
+    display: none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:35;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#share-pro.open{    
+    display: block;
+}
+#share-pro .share-shadow{
+    background-color:#000;
+    position:absolute;
+    display:block;
+    z-index:-1;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    filter:alpha(opacity=40);
+    opacity:.4;
+}
+.product-detail .share-ico{
+    z-index:1;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:#fff;
+    box-shadow:0px -2px 10px rgba(0,0,0,0.1);
+}
+.product-detail .share-ico h4{
+    font-size:16px;
+    text-transform:uppercase;
+    color:#00d1c8;
+    border-bottom:1px solid #e0e0e0;
+    text-align:center;
+    margin:0 auto;
+    line-height:30px;
+    padding:10px 0;
+}
+.product-detail .share-ico .flex{
+    display:flex;
+    padding:10px 0;
+}
+.product-detail .share-ico a{
+    text-align: center;
+    color:#7b7b7b;
+    display: block;
+    text-align:center;
+    flex:1;
+}
+.product-detail .share-ico a .iconfont{
+    font-size: 24px;
+}
+.product-detail .share-ico a .icon-tuite{
+    color: #54a2dd
+}
+.product-detail .share-ico a .icon-ins{
+    color: #125687
+}
+.product-detail .share-ico a .icon-mianshulogo{
+    color: #3a5898
+}
+.product-detail .share-ico a .icon-pinterest{
+    color: #cb2026
+}
+.product-detail .share-ico a .icon-link{
+    color: #fdb700
+}
